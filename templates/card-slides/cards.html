@@ -7,200 +7,143 @@
                 </div>
                 <div class="col-12">
                     <div id="carouselExampleIndicators2" class="carousel slide" data-bs-ride="carousel">
-
                         <div class="carousel-inner">
                             <div class="carousel-item active">
                                 <div class="row">
-
-                                    <div class="col-md-4 mb-3">
-                                        <div class="card">
+                                    {% for cakes in cake|slice:"0:4" %}
+                                    <div class="card-container col-md-4 mt-5 mx-auto ">
+                                        <div class="card card-front text-center position-absolute">
                                             <img class="card-img-top img-fluid" alt="100%x280"
-                                                src="/static/images/index/Cake-category/cake1.jpg">
+                                                src="/static/assets/{{cakes.product_picture}}">
                                             <div class="card-body">
-                                            {% comment %}<h4 class="card-title">Special title treatment</h4>
-                                                <p class="card-text">With supporting text below as a natural lead-in to
-                                                    additional content.</p>{% endcomment%}
-
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4 mb-3">
-                                        <div class="card">
-                                            <img class="card-img-top img-fluid" alt="100%x280"
-                                                src="/static/images/index/Cake-category/red-velvet.jpg">
-                                            <div class="card-body">
-                                                {% comment %}<h4 class="card-title">Special title treatment</h4>
-                                                <p class="card-text">With supporting text below as a natural lead-in to
-                                                    additional content.</p>{% endcomment%} 
-
+                                                <h5 class="card-title">{{cakes.product_name}}</h5>
+                                                <p class="card-text mt-3">Rs.{{cakes.product_price}}</p>
+                                                <!-- <button class="btn btn-primary">Order Now</button> -->
+                                                <!-- <button class="btn btn-primary">Add to Cart</button> -->
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="col-md-4 mb-3">
-                                        <div class="card">
-                                            <img class="card-img-top" alt="100%x280"
-                                                src="/static/images/index/Cake-category/cake-3.jpg">
-                                            <div class="card-body">
-                                                {% comment %}<h4 class="card-title">Special title treatment</h4>
-                                                <p class="card-text">With supporting text below as a natural lead-in to
-                                                    additional content.</p>{% endcomment%}
-
+                                        <div class="card card-back position-absolute">
+                                            <div class="card-body text-center" style="margin-top:5rem;">
+                                                <a href="#" class="btn btn-lg btn-warning mt-5 text-light">Order
+                                                    Now</a><br>
+                                                <span class="text-dark">OR</span><br>
+                                                <a href="tel:9811722722" class="btn btn-lg btn-danger">Call
+                                                    Now</a><br>
                                             </div>
                                         </div>
                                     </div>
 
+                                    {% endfor %}
                                 </div>
                             </div>
                             <div class="carousel-item">
                                 <div class="row">
-
-                                    <div class="col-md-4 mb-3">
-                                        <div class="card">
-                                            <img class="card-img-top" alt="100%x280"
-                                                src="/static/images/index/Cake-category/cake-4.jpg">
+                                    {% for cakes in cake|slice:"4:8" %}
+                                    <div class="card-container col-md-4 mt-5 mx-auto ">
+                                        <div class="card card-front text-center position-absolute">
+                                            <img class="card-img-top img-fluid" alt="100%x280"
+                                                src="/static/assets/{{cakes.product_picture}}">
                                             <div class="card-body">
-                                                {% comment %}<h4 class="card-title">Special title treatment</h4>
-                                                <p class="card-text">With supporting text below as a natural lead-in to
-                                                    additional content.</p>{% endcomment%}
-
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4 mb-3">
-                                        <div class="card">
-                                            <img class="img-fluid" alt="100%x280"
-                                                src="/static/images/index/Cake-category/cake5.jpg">
-                                            <div class="card-body">
-                                                {% comment %}<h4 class="card-title">Special title treatment</h4>
-                                                <p class="card-text">With supporting text below as a natural lead-in to
-                                                    additional content.</p>{% endcomment%}
-
+                                                <h5 class="card-title">{{cakes.product_name}}</h5>
+                                                <p class="card-text mt-3">Rs.{{cakes.product_price}}</p>
+                                                <!-- <button class="btn btn-primary">Order Now</button> -->
+                                                <!-- <button class="btn btn-primary">Add to Cart</button> -->
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="col-md-4 mb-3">
-                                        <div class="card">
-                                            <img class="img-fluid" alt="100%x280"
-                                                src="/static/images/index/Cake-category/cake6.jpg">
-                                            <div class="card-body">
-                                                {% comment %}<h4 class="card-title">Special title treatment</h4>
-                                                <p class="card-text">With supporting text below as a natural lead-in to
-                                                    additional content.</p>{% endcomment%}
-
+                                        <div class="card card-back position-absolute">
+                                            <div class="card-body text-center" style="margin-top:5rem;">
+                                                <a href="#" class="btn btn-lg btn-warning mt-5 text-light">Order
+                                                    Now</a><br>
+                                                <span class="text-dark">OR</span><br>
+                                                <a href="tel:9811722722" class="btn btn-lg btn-danger">Call
+                                                    Now</a><br>
                                             </div>
                                         </div>
                                     </div>
 
+                                    {% endfor %}
                                 </div>
-                            </div>
 
+
+                            </div>
                         </div>
+
                     </div>
                 </div>
             </div>
         </div>
+        </div>
     </section>
 
     <section class="py-5">
-        <div class="container" >
+        <div class="container">
             <div class="row">
                 <div class="d-flex justify-content-center">
                     <h3 class="mb-4 text-warning">Cup Cake</h3>
                 </div>
                 <div class="col-12">
                     <div id="carouselExampleIndicators2" class="carousel slide" data-bs-ride="carousel">
-
                         <div class="carousel-inner">
                             <div class="carousel-item active">
                                 <div class="row">
-
-                                    <div class="col-md-4 mb-3">
-                                        <div class="card">
+                                    {% for cupcake in cupcake|slice:"0:4" %}
+                                    <div class="card-container col-md-4 mt-5 mx-auto ">
+                                        <div class="card card-front text-center position-absolute">
                                             <img class="card-img-top img-fluid" alt="100%x280"
-                                                src="/static/images/index/cupcake/cup-cake1.jpg">
+                                                src="/static/assets/{{cupcake.product_picture}}">
                                             <div class="card-body">
-                                                {% comment %}<h4 class="card-title">Special title treatment</h4>
-                                                <p class="card-text">With supporting text below as a natural lead-in to
-                                                    additional content.</p>{% endcomment%}
-
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4 mb-3">
-                                        <div class="card">
-                                            <img class="card-img-top img-fluid" alt="100%x280"
-                                                src="/static/images/index/cupcake/cup-cake2.jpg">
-                                            <div class="card-body">
-                                                {% comment %}<h4 class="card-title">Special title treatment</h4>
-                                                <p class="card-text">With supporting text below as a natural lead-in to
-                                                    additional content.</p>{% endcomment%}
-
+                                                <h5 class="card-title">{{cupcake.product_name}}</h5>
+                                                <p class="card-text mt-3">Rs.{{cupcake.product_price}}</p>
+                                                <!-- <button class="btn btn-primary">Order Now</button> -->
+                                                <!-- <button class="btn btn-primary">Add to Cart</button> -->
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="col-md-4 mb-3">
-                                        <div class="card">
-                                            <img class="card-img-top" alt="100%x280"
-                                                src="/static/images/index/cupcake/cup-cake3.jpg">
-                                            <div class="card-body">
-                                                {% comment %}<h4 class="card-title">Special title treatment</h4>
-                                                <p class="card-text">With supporting text below as a natural lead-in to
-                                                    additional content.</p>{% endcomment%}
-
+                                        <div class="card card-back position-absolute">
+                                            <div class="card-body text-center" style="margin-top:5rem;">
+                                                <a href="#" class="btn btn-lg btn-warning mt-5 text-light">Order
+                                                    Now</a><br>
+                                                <span class="text-dark">OR</span><br>
+                                                <a href="tel:9811722722" class="btn btn-lg btn-danger">Call
+                                                    Now</a><br>
                                             </div>
                                         </div>
                                     </div>
 
+                                    {% endfor %}
                                 </div>
                             </div>
                             <div class="carousel-item">
                                 <div class="row">
-
-                                    <div class="col-md-4 mb-3">
-                                        <div class="card">
-                                            <img class="card-img-top" alt="100%x280"
-                                                src="/static/images/index/cupcake/cup-cake-4.jpg">
+                                    {% for cupcake in cupcake|slice:"4:8" %}
+                                    <div class="card-container col-md-4 mt-5 mx-auto ">
+                                        <div class="card card-front text-center position-absolute">
+                                            <img class="card-img-top img-fluid" alt="100%x280"
+                                                src="/static/assets/{{cupcake.product_picture}}">
                                             <div class="card-body">
-                                                {% comment %}<h4 class="card-title">Special title treatment</h4>
-                                                <p class="card-text">With supporting text below as a natural lead-in to
-                                                    additional content.</p>{% endcomment%}
-
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4 mb-3">
-                                        <div class="card">
-                                            <img class="img-fluid" alt="100%x280"
-                                                src="/static/images/index/cupcake/cup-cake5.jpg">
-                                            <div class="card-body">
-                                                {% comment %}<h4 class="card-title">Special title treatment</h4>
-                                                <p class="card-text">With supporting text below as a natural lead-in to
-                                                    additional content.</p>{% endcomment%}
-
+                                                <h5 class="card-title">{{cupcake.product_name}}</h5>
+                                                <p class="card-text mt-3">Rs.{{cupcake.product_price}}</p>
+                                                <!-- <button class="btn btn-primary">Order Now</button> -->
+                                                <!-- <button class="btn btn-primary">Add to Cart</button> -->
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="col-md-4 mb-3">
-                                        <div class="card">
-                                            <img class="img-fluid" alt="100%x280"
-                                                src="/static/images/index/cupcake/cup-cake6.jpg">
-                                            <div class="card-body">
-                                                {% comment %}<h4 class="card-title">Special title treatment</h4>
-                                                <p class="card-text">With supporting text below as a natural lead-in to
-                                                    additional content.</p>{% endcomment%}
-
+                                        <div class="card card-back position-absolute">
+                                            <div class="card-body text-center" style="margin-top:5rem;">
+                                                <a href="#" class="btn btn-lg btn-warning mt-5 text-light">Order
+                                                    Now</a><br>
+                                                <span class="text-dark">OR</span><br>
+                                                <a href="tel:9811722722" class="btn btn-lg btn-danger">Call
+                                                    Now</a><br>
                                             </div>
                                         </div>
                                     </div>
 
+                                    {% endfor %}
                                 </div>
-                            </div>
 
+
+                            </div>
                         </div>
+
                     </div>
                 </div>
             </div>
@@ -215,96 +158,67 @@
                 </div>
                 <div class="col-12">
                     <div id="carouselExampleIndicators2" class="carousel slide" data-bs-ride="carousel">
-
                         <div class="carousel-inner">
                             <div class="carousel-item active">
                                 <div class="row">
-
-                                    <div class="col-md-4 mb-3">
-                                        <div class="card">
+                                    {% for desserts in dessert|slice:"0:4" %}
+                                    <div class="card-container col-md-4 mt-5 mx-auto ">
+                                        <div class="card card-front text-center position-absolute">
                                             <img class="card-img-top img-fluid" alt="100%x280"
-                                                src="/static/images/index/dessert/dessert2.jpg">
+                                                src="/static/assets/{{desserts.product_picture}}">
                                             <div class="card-body">
-                                                {% comment %}<h4 class="card-title">Special title treatment</h4>
-                                                <p class="card-text">With supporting text below as a natural lead-in to
-                                                    additional content.</p>{% endcomment%}
-
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4 mb-3">
-                                        <div class="card">
-                                            <img class="card-img-top img-fluid" alt="100%x280"
-                                                src="/static/images/index/dessert/dessert3.jpg">
-                                            <div class="card-body">
-                                                {% comment %}<h4 class="card-title">Special title treatment</h4>
-                                                <p class="card-text">With supporting text below as a natural lead-in to
-                                                    additional content.</p>{% endcomment%}
-
+                                                <h5 class="card-title">{{desserts.product_name}}</h5>
+                                                <p class="card-text mt-3">Rs.{{desserts.product_price}}</p>
+                                                <!-- <button class="btn btn-primary">Order Now</button> -->
+                                                <!-- <button class="btn btn-primary">Add to Cart</button> -->
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="col-md-4 mb-3">
-                                        <div class="card">
-                                            <img class="card-img-top" alt="100%x280"
-                                                src="/static/images/index/dessert/dessert4.jpg">
-                                            <div class="card-body">
-                                                {% comment %}<h4 class="card-title">Special title treatment</h4>
-                                                <p class="card-text">With supporting text below as a natural lead-in to
-                                                    additional content.</p>{% endcomment%}
-
+                                        <div class="card card-back position-absolute">
+                                            <div class="card-body text-center" style="margin-top:5rem;">
+                                                <a href="#" class="btn btn-lg btn-warning mt-5 text-light">Order
+                                                    Now</a><br>
+                                                <span class="text-dark">OR</span><br>
+                                                <a href="tel:9811722722" class="btn btn-lg btn-danger">Call
+                                                    Now</a><br>
                                             </div>
                                         </div>
                                     </div>
 
+                                    {% endfor %}
                                 </div>
                             </div>
                             <div class="carousel-item">
                                 <div class="row">
-
-                                    <div class="col-md-4 mb-3">
-                                        <div class="card">
-                                            <img class="card-img-top" alt="100%x280"
-                                                src="/static/images/index/dessert/dessert5.jpg">
+                                    {% for desserts in dessert|slice:"4:8" %}
+                                    <div class="card-container col-md-4 mt-5 mx-auto ">
+                                        <div class="card card-front text-center position-absolute">
+                                            <img class="card-img-top img-fluid" alt="100%x280"
+                                                src="/static/assets/{{desserts.product_picture}}">
                                             <div class="card-body">
-                                                {% comment %}<h4 class="card-title">Special title treatment</h4>
-                                                <p class="card-text">With supporting text below as a natural lead-in to
-                                                    additional content.</p>{% endcomment%}
-
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4 mb-3">
-                                        <div class="card">
-                                            <img class="img-fluid" alt="100%x280"
-                                                src="/static/images/index/dessert/dessert6.jpg">
-                                            <div class="card-body">
-                                                {% comment %}<h4 class="card-title">Special title treatment</h4>
-                                                <p class="card-text">With supporting text below as a natural lead-in to
-                                                    additional content.</p>{% endcomment%}
-
+                                                <h5 class="card-title">{{desserts.product_name}}</h5>
+                                                <p class="card-text mt-3">Rs.{{desserts.product_price}}</p>
+                                                <!-- <button class="btn btn-primary">Order Now</button> -->
+                                                <!-- <button class="btn btn-primary">Add to Cart</button> -->
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="col-md-4 mb-3">
-                                        <div class="card">
-                                            <img class="img-fluid" alt="100%x280"
-                                                src="/static/images/index/dessert/doughnot.jpg">
-                                            <div class="card-body">
-                                                {% comment %}<h4 class="card-title">Special title treatment</h4>
-                                                <p class="card-text">With supporting text below as a natural lead-in to
-                                                    additional content.</p>{% endcomment%}
-
+                                        <div class="card card-back position-absolute">
+                                            <div class="card-body text-center" style="margin-top:5rem;">
+                                                <a href="#" class="btn btn-lg btn-warning mt-5 text-light">Order
+                                                    Now</a><br>
+                                                <span class="text-dark">OR</span><br>
+                                                <a href="tel:9811722722" class="btn btn-lg btn-danger">Call
+                                                    Now</a><br>
                                             </div>
                                         </div>
                                     </div>
 
+                                    {% endfor %}
                                 </div>
-                            </div>
 
+
+                            </div>
                         </div>
+
                     </div>
                 </div>
             </div>

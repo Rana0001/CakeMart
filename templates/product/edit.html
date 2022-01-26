@@ -1,14 +1,19 @@
 {% extends 'admin/index.html' %}
 {% block content %}
 
-<form class="container has-validation" method="POST" action="/admin/editProduct/{{product.product_id}}" enctype="multipart/form-data">
+<form class="container mt-3 has-validation" method="POST" action="/admin/editProduct/{{product.product_id}}" enctype="multipart/form-data">
     {% csrf_token %}
-    <div class="col-6">
+    <div class="col-md-6 offset-md-3 text-center">
+        <i class="fa-solid fa-user text-success" style="font-size:80px"  ></i>
+
+        <h3>Edit Product</h3>
+    </div>
+    <div class="col-md-6 offset-md-3">
         <label class="form-label" for="validationDefault01">Product Name</label><br>
         <input class="form-control" id="validationDefault01" type="text" name="product_name" value="{{product.product_name}}" required>
         </input>
     </div>
-    <div class="col-6">
+    <div class="col-md-6 offset-md-3">
         <div class="col-md-3">
             <label class="form-label" for="validationDefault02">Category</label><br>
             <select class="form-select" id="validationCustom04" name="product_category" value ="{{product.product_category}}" required>
@@ -20,20 +25,20 @@
             </select>
         </div>
     </div>
-    <div class="col-6">
+    <div class="col-md-6 offset-md-3">
         <label class="form-label" for="validationDefaultUsername">Price</label><br>
         <input class="form-control" type="number" name="product_price" value="{{product.product_price}}" for="validationDefaultUsername" required>
         </input>
     </div>
-    <div class="col-6">
+    <div class="col-md-6 offset-md-3">
         <label class="form-label" for="validationDefault01">Image</label><br>
         <div class="input-group mb-3">
-            <input type="file" name="product_picture" class="form-control" vaule="{{product.product_picture}}" id="inputGroupFile02">
+            <input type="file" name="product_picture" class="form-control" vaule="{{product.product_picture}}" id="inputGroupFile02" accept=".jpg, .jpeg, .png">
         </div><br>
     </div>
-    <div class="col-6">
+    <div class="col-md-6 offset-md-3">
         <div class="row">
-            <div class="col-6">
+            <div class="col-6 mb-2">
                 <input class="btn btn-lg bg-primary text-light" type="submit" value="Update">
                 </input>
             </div>

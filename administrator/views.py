@@ -43,13 +43,16 @@ def create(request):
 # @Authentication.valid_admin
 def loginAdmin(request):
     if request.method == "POST":
-        request.session['username'] = request.POST['username']
+        username = request.session['username'] = request.POST['username']
         request.session['password'] = request.POST['password']
+        AdminUser.objects.filter(username=username).update(is_admin=True)
         return redirect('/admin/index/')
     return render(request, 'admin/login.html')
 
 
 def signout(request):
+    username = request.session['username']
+    AdminUser.objects.filter(username=username).update(is_admin=False)
     request.session.flush()
     return redirect('/admin/login/')
 

@@ -33,9 +33,10 @@
                         </div>
                         <div class="row py-2">
                             <div class="col-9 ms-lg-5">
-                                {% for message in messages %}
+                                {% comment %} {% for message in messages %}
                                 <p class="bg-danger py-3 ps-lg-2" style="color:white;">{{message}}</p>
-                                {% endfor %}
+                                {% endfor %} {% endcomment %}
+                                {% include  'header/messages.html' %}
                             </div>
                             <div class="col-12 mt-xl-4 ms-lg-5 pb-2 mb-2">
                                 <label class="form-label mb-2">Email Address:</label><br>
@@ -49,9 +50,9 @@
                                     style="cursor: pointer;">
                             </div>
                             <div class="col-12 mt-1 align-self-end">
-                                <label class="d-flex form-label justify-content-end"><span
+                                <a href="/password_reset/" class="d-flex form-label justify-content-end"><span
                                         style="cursor:pointer; font-weight: 200;">Forget
-                                        password?</span></label>
+                                        password?</span></a>
                             </div>
                             <div class="col-12">
                                 <div class="row g-0">

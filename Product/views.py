@@ -17,13 +17,15 @@ def productTable(request):
     return render(request, 'product/product.html', {'products': products, 'users': users, 'admin_user': admin_users})
 
 
-@Authentication.admin_only
-@Authentication.valid_admin
+# @Authentication.valid_admin
+# @Authentication.admin_only
 def addProduct(request):
     if request.method == "POST":
+        print(request.POST)
         form = ProductForm(request.POST, request.FILES)
         if form.is_valid:
             form.save()
+            messages.success(request, "Product Added Successful.")
             return redirect("/admin/product/")
         else:
             return redirect("/admin/addProduct/")
