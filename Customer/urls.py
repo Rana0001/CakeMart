@@ -6,5 +6,7 @@ from Customer import views
 urlpatterns = [
     path('', views.index,name="index"),
     # path('Customer/', include('Customer.urls'))
-    path('register/', views.register, name="Register")
+    path('register/', views.register, name="Register"),
+    path('login/', views.login, name="login")
+
 ]

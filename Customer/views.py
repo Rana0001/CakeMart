@@ -19,3 +19,6 @@ def register(request):
                 print("Invalid Data")
                 print(forms)
     return render(request,'register/register.html')
+
+def login(request):
+    return render(request, 'login/login.html')
