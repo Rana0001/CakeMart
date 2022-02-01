@@ -1,92 +1,92 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends 'base.html' %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="/static/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="/static/css/index.css" rel="stylesheet">
-    <script src="/static/js/index.js"></script>
-    <title>CakeMart | Welcome to CakeMart</title>
-</head>
-
-<body>
-    <section class="footer">
-        <nav id="navbar" class="navbar navbar-expand-lg navbar-light bg-light">
-
-            <div class="container-fluid mx-5">
-
-                <a class="navbar-brand" href="/">
-
-                    <img src="/static/images/BrandLogo.png" alt="" width="80" height="70">
-
-                </a>
-
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
-                    aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-
-                    <span class="navbar-toggler-icon"></span>
-
-                </button>
-
+{% block content %}
+<section class="home" id="scrollspyHeading1">
+    <div class="slider-content">
+        <div class="slide active-slide" style="background-image: url('/static/images/index/cake/slide-1.jpg')">
+            <div class="container-carousel">
+                <div class="caption">
+                    <h1 style="color: black;">1. Cake</h1>
+                    <p style="color: black;">Order your Celebration Cake with 10% discount.</p>
+                    <a href="">Order Now</a>
+                </div>
             </div>
+        </div>
+        <div class="slide" style="background-image: url('/static/images/index/cake/slide-2.jpg')">
+            <div class="container-carousel">
+                <div class="caption">
+                    <h1>2. Cup-Cake</h1>
+                    <p>Enjoy your Cup-Cake with your friend.</p>
+                    <a href="">Order Now</a>
+                </div>
+            </div>
+        </div>
+        <div class="slide" style="background-image: url('/static/images/index/cake/slide-3.jpg')">
+            <div class="container-carousel">
+                <div class="caption">
+                    <h1>3. Dessert</h1>
+                    <p>Dessert is an opportunity to make something beautiful as well as delicious.</p>
+                    <a href="">Order Now</a>
+                </div>
+            </div>
+        </div>
+    </div>
 
-            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <!-- controls  -->
+    <div class="controls">
+        <div class="prev"></div>
+        <div class="next"> </div>
+    </div>
 
-                <div class="navbar-nav me-5">
+    <!-- indicators -->
+    <div class="indicator">
+    </div>
 
-                    <a class="nav-item nav-link my-3 text-black" href="#">Home</a>
-
-                    <a class="nav-item nav-link my-3 text-black" href="#">Product</a>
-
-                    <a class="nav-item nav-link my-3 text-black" href="#">About</a>
-
-                    <a class="nav-item nav-link my-3 text-black" href="#">Contact</a>
+</section>
 
 
-                    <a class="nav-item nav-link" href="/login/"><button name="login" class="btn py-3 my-2 my-sm-0"
-                            style="background-color: #634141; color:white;">Login/Signup</button></a>
+<section class="container-fluid mt-5">
+    <section class="container pt-3">
+        <div class="row">
+            <div class="col-lg-4"></div>
+            <div class="col-lg-4">
+                <div class="row">
+                    <div class="col-sm-4">
+                        <img class="rounded pb-2" height="80px" weight="80px"
+                            src="/static/images/index/cakeAssert/cake.png"><br>
+                        <span class="px-sm-3">Cake</span>
+                    </div>
+
+                    <div class="col-sm-4">
+                        <img class="rounded pb-2" height="80px" weight="80px"
+                            src="/static/images/index/cakeAssert/dessert.png"><br>
+                        <span class="px-sm-0">Cup Cake</span>
+
+                    </div>
+
+                    <div class="col-sm-4">
+                        <img class="rounded pb-2" height="80px" weight="80px"
+                            src="/static/images/index/cakeAssert/cup-cake.png"><br>
+                        <span class="px-sm-2">Dessert</span>
+
+                    </div>
+
 
                 </div>
-
             </div>
-
-        </nav>
+            <div class="col-lg-4"></div>
+        </div>
     </section>
+</section>
 
-    <section class="container-fluid">
+<section class="container-fluid">
+    
 
-
-    </section>
-    <div style="margin-top:210px;padding:15px 15px 2500px;font-size:15px">
-        <p><b>This example demonstrates how to shrink a navigation bar when the user starts to scroll the page.</b></p>
-        <p>Scroll down this frame to see the effect!</p>
-        <p>Scroll to the top to remove the effect.</p>
-        <p><b>Note:</b> We have also made the navbar responsive, resize the browser window to see the
-            effect.</p>
-        <p contenteditable="true">Lorem ipsum dolor dummy text to enable scrolling, sit amet, consectetur adipiscing
-            elit, sed do eiusmod
-            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-            ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-            velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-            culpa qui officia deserunt mollit anim id est laborum.</p>
-    </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
+</section>
 
 
+{% include 'about_us/aboutUs.html' %}
 
+{% include 'contact_us/contactUs.html' %}
 
-
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
-        integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB"
-        crossorigin="anonymous"></script>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
-        integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13"
-        crossorigin="anonymous"></script>
-</body>
-
-</html>
+{% endblock %}

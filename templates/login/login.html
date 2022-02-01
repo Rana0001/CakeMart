@@ -19,7 +19,8 @@
 <body>
 
     <section class="container-fluid w-100 h-100">
-        <form class="container my-2">
+        <form class="container my-2" action="{% url 'login' %}" method ="POST">
+            {% csrf_token %}
             <div class="row">
                 <div class="col-xl-6 login-bg py-3">
                     <img class="img-fluid" src="/static/images/login/login.jpg" alt="" />
@@ -33,11 +34,11 @@
                         <div class="row py-2">
                             <div class="col-12 mt-xl-4 ms-lg-5 pb-2 mb-2">
                                 <label class="form-label mb-2">Email Address:</label><br>
-                                <input type="text" class="input-field py-2 w-75">
+                                <input type="text" name="email" class="input-field py-2 w-75">
                             </div>
                             <div class="col-12 mt-xl-2 ms-lg-5 pb-2 mb-2">
                                 <label class="form-label mb-2">Password:</label><br>
-                                <input type="password" id="password-field" class="input-field py-2 w-75"><img
+                                <input type="password" id="password-field" name="password" class="input-field py-2 w-75"><img
                                     class="mx-2 mt-2" onclick="showPassword()" src="/static/images/eye/eyeclosed.svg"
                                     id="eye" height="20px" width="22px" alt="" style="cursor: pointer;">
                             </div>

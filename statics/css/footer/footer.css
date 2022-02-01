@@ -1,0 +1,22 @@
+.footer-content {
+    background-image: url('/static/images/footer/wave2.svg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+@media screen and (max-width: 578px) {
+    .arrow {
+        display: none;
+    }
+}
+
+.footer-link {
+    text-decoration: none;
+    color: rgba(255, 252, 249, 0.877);
+
+}
+
+.footer-link:hover {
+    color: rgba(255, 252, 249, 0.877);
+}
