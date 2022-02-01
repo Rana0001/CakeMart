@@ -3,7 +3,7 @@ from turtle import title
 from django.shortcuts import render, HttpResponse, redirect
 from .forms import *
 from .models import *
-from django.contrib import messages,auth
+from django.contrib import messages, auth
 
 # Create your views here.
 
@@ -36,20 +36,26 @@ def login(request):
     if request.method == "POST":
         email = request.POST['email']
         password = request.POST['password']
-        user = auth.authenticate(email=email, password=password)
+        try:
+            user = auth.authenticate(request, email=email, password=password)
+            if user is not None:
+                if user.is_super:
+                    auth.login(request,user)
+                    return redirect("/")
+        except:
+            user = Customer.objects.get(email=email, password=password)
+
+            if user is not None:
+                return redirect("/")
         
-        if user is not None:
-            auth.login(request,user)
-            messages.success(request,'You are now logged in')
-            
-        
-        # try:
-        #     user = Customer.objects.get(email=email, password=password)
-        #     if user is not None:
-        #         return redirect("/register/")
-        # except:
-        #     return redirect('/login/')
+        messages.error(request, 'Please! Re-enter your email and password')
+        return redirect('/login/')
     return render(request, 'login/login.html')
+
+
+
+
+
 
 
 def about(request):
