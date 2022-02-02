@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/37789ae0bb.js" crossorigin="anonymous"></script>
+
+    <title>CakeMart | Admin Dashboard</title>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark" id=" navbar-scrollspy">
+        <div class="container-fluid ms-lg-5">
+            <a class="navbar-brand" href="/">
+                <img src="/static/images/BrandLogo.png" alt="" width="80" height="70">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse nav navbar-light bg-dark justify-content-end" id="navbarNavAltMarkup">
+                <ul class="nav nav-pills">
+                    <li class="nav-item">
+                        <a class="nav-link active px-lg-4" aria-current="page" href="#">Dashboard</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-light px-lg-4" href="#">Customer</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-light px-lg-4" href="#">Product</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-light px-lg-4" href="#" tabindex="-1" aria-disabled="true">Order</a>
+                    </li>
+                    <a class="btn btn-danger px-lg-4" href="/login/">Log out</a>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    {% block content %}
+
+    <section class="container-fluid" style="background-color: #2B373B; color: white;">
+        <div class="container">
+            <div class="row py-5">
+                <div class="col-md-3 bg-primary ms-md-4 rounded py-4">
+                    <h4 style="text-align: center;">Total No. Customer</h4>
+                    <p style="text-align: center; font-size: 30px;">50</p>
+                </div>
+                <div class="col-1">
+                </div>
+                <div class="col-md-3 bg-danger rounded py-4">
+                    <h4 style="text-align: center;">Total No. Product</h4>
+                    <p style="text-align: center; font-size: 30px;">30</p>
+                </div>
+                <div class="col-1">
+                </div>
+                <div class="col-md-3 bg-warning rounded py-4">
+                    <h4 style="text-align: center;">Total No. Order</h4>
+                    <p style="text-align: center; font-size: 30px;">50</p>
+                </div>
+            </div>
+        </div>
+        <div class="d-flex justify-content-end">
+            <button class="btn btn-primary">Add User</button>
+        </div>
+    </section>
+
+    <section class="container-fluid">
+        <table class="table table-striped table-light">
+            <thead>
+                <tr>
+                    <th scope="col">S.N</th>
+                    <th scope="col">Username</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Password</th>
+                    <th scope="col"></th>
+
+
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">1</th>
+                    <td>Mark</td>
+                    <td>Otto</td>
+                    <td>@mdo</td>
+                    <td><span class="far fa-edit px-2" style="font-size: 25px;color:green;"></span><span
+                            class="fas fa-trash px-2" style="font-size: 25px;color:#dc3545;"></span>
+                    </td>
+
+                </tr>
+                <tr>
+                    <th scope="row">2</th>
+                    <td>Jacob</td>
+                    <td>Thornton</td>
+                    <td>@fat</td>
+                    <td><span class="far fa-edit px-2" style="font-size: 25px;color:green;"></span><span
+                            class="fas fa-trash px-2" style="font-size: 25px;color:#dc3545;"></span>
+                    </td>
+
+                </tr>
+                <tr>
+                    <th scope="row">3</th>
+                    <td>Larry</td>
+                    <td>the Bird</td>
+                    <td>@twitter</td>
+                    <td><span class="far fa-edit px-2" style="font-size: 25px;color:green;"></span><span
+                            class="fas fa-trash px-2" style="font-size: 25px;color:#dc3545;"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">4</th>
+                    <td>Larry</td>
+                    <td>the Bird</td>
+                    <td>@twitter</td>
+                    <td><span class="far fa-edit px-2" style="font-size: 25px;color:green;"></span><span
+                            class="fas fa-trash px-2" style="font-size: 25px;color:#dc3545;"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">5</th>
+                    <td>Larry</td>
+                    <td>the Bird</td>
+                    <td>@twitter</td>
+                    <td><span class="far fa-edit px-2" style="font-size: 25px;color:green;"></span><span
+                            class="fas fa-trash px-2" style="font-size: 25px;color:#dc3545;"></span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        </div>
+        <nav class="d-flex justify-content-center" aria-label="...">
+            <ul class="pagination">
+                <li class="page-item">
+                    <span class="page-link">Previous</span>
+                </li>
+                <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                <li class="page-item" aria-current="page">
+                    <span class="page-link">2</span>
+                </li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item">
+                    <a class="page-link" href="#">Next</a>
+                </li>
+            </ul>
+        </nav>
+    </section>
+
+
+    {% endblock %}
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

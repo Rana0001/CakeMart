@@ -10,19 +10,20 @@ from django.contrib import messages
 
 # Create your views here.
 
+# def registerAdmin(request):
 
-# def adminLogin(request):
-#     if request.method == "POST":
-#         email = request.POST["email"]
-#         password = request.POST["password"]
-#         user = authenticate(request, email=email, password=password)
+def home(request):
+    #     if request.method == "POST":
+    #         email = request.POST["email"]
+    #         password = request.POST["password"]
+    #         user = authenticate(request, email=email, password=password)
 
-#         if user is not None:
-#             login(request, user)
-#             print(email)
+    #         if user is not None:
+    #             login(request, user)
+    #             print(email)
 
-#             return redirect("/")
-#     return render(request, "admin/admin.html")
+    #             return redirect("/")
+    return render(request, "admin/index.html")
 
 # def adminLogin(request):
 #     if request.method == 'POST':
