@@ -1,0 +1,11 @@
+[
+    {
+        "model": "administrator.AdminUser",
+        "fields": {
+            "user_id": "1",
+            "username": "root",
+            "email": "root@gmail.com",
+            "password": "root"
+        }
+    }
+]

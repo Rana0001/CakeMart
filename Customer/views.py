@@ -37,25 +37,13 @@ def login(request):
         email = request.POST['email']
         password = request.POST['password']
         try:
-            user = auth.authenticate(request, email=email, password=password)
-            if user is not None:
-                if user.is_super:
-                    auth.login(request,user)
-                    return redirect("/")
-        except:
             user = Customer.objects.get(email=email, password=password)
-
             if user is not None:
                 return redirect("/")
-        
-        messages.error(request, 'Please! Re-enter your email and password')
-        return redirect('/login/')
+        except:
+            messages.error(request, 'Please! Re-enter your email and password')
+            return redirect('/login/')
     return render(request, 'login/login.html')
-
-
-
-
-
 
 
 def about(request):

@@ -1,12 +1,13 @@
-from os import name
+
 from django.contrib import admin
 from django.urls import path, include
-from Customer import views
+from Customer.views import register, login, about, index
 
 urlpatterns = [
-    path('', views.index, name="index"),
+    path('', index, name="index"),
     # path('Customer/', include('Customer.urls'))
-    path('register/', views.register, name="Register"),
-    path('login/', views.login, name="login"),
-    path('about/', views.about, name="about")
+    path('register/', register, name="Register"),
+    path('login/', login, name="login"),
+    path('about/', about, name="about"),
+
 ]

@@ -1,0 +1,47 @@
+{% extends 'admin/index.html' %}
+{% block content %}
+
+<form class="container has-validation" method="POST" action="/admin/create" enctype="multipart/form-data">
+    <div class="row py-2">
+        <div class="col-9">
+            {% for message in messages %}
+            <p class="bg-danger py-3 ps-lg-2" style="color:white;">{{message}}</p>
+            {% endfor %}
+        </div>
+    <div class="col-6">
+        <label class="form-label" for="validationDefault01">First Name</label><br>
+        <input class="form-control" id="validationDefault01" type="text" name="first_name" required>
+        </input>
+    </div>
+    <div class="col-6">
+        <label class="form-label" for="validationDefault02">Last Name</label><br>
+        <input class="form-control" type="text" name="last_name" id="validationDefault02" required>
+        </input>
+    </div>
+    <div class="col-6">
+        <label class="form-label" for="validationDefaultUsername">Email</label><br>
+        <input class="form-control" type="email" name="email" for="validationDefaultUsername" required>
+        </input>
+    </div>
+    <div class="col-6">
+        <label class="form-label" for="validationDefault01">Password</label><br>
+        <input class="form-control" type="password" name="Password" id="validationDefault01" required>
+        </input><br>
+    </div>
+    <div class="col-6">
+        <div class="row">
+            <div class="col-6">
+                <input class="btn btn-lg bg-primary text-light" type="submit" value="Add User">
+                </input>
+            </div>
+            <div class="col-6">
+                <a href="/admin/index/" class="btn btn-lg bg-danger text-light">Cancel
+                </a>
+            </div>
+        </div>
+    </div>
+
+</form>
+
+
+{% endblock%}

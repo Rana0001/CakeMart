@@ -1,41 +1,47 @@
-
-
 from django.shortcuts import redirect, render
-
 from django.contrib.auth import *
-from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
+from Customer.models import Customer
+from .models import AdminUser
+from .forms import AdminUserForm
 # from django.contrib.auth.models import User
 
 # Create your views here.
 
 # def registerAdmin(request):
 
+
+def create(request):
+    if request.method == "POST":
+        try:
+            form = AdminUserForm(request.POST)
+            email = request.POST['email']
+            username = request.POST['username']
+            if form.is_valid():
+                if AdminUser.objects.filter(email=email).exists():
+                    messages.error(request, 'Email already exists')
+                    return redirect('/admin/adduser/')
+                elif AdminUser.objects.filter(username=username).exists():
+                    messages.error(request, 'Username already exists')
+                    return redirect('/admin/adduser/')
+                else:
+                    form.save()
+                    print(form)
+                    return redirect("/admin/index/")
+        except:
+            pass
+    return render(request, 'admin/form.html')
+
+
+def customerboard(request):
+    context = {}
+    customers = Customer.objects.all()
+    return render(request, 'customer/customer.html', {'customers': customers})
+
+
 def home(request):
-    #     if request.method == "POST":
-    #         email = request.POST["email"]
-    #         password = request.POST["password"]
-    #         user = authenticate(request, email=email, password=password)
 
-    #         if user is not None:
-    #             login(request, user)
-    #             print(email)
-
-    #             return redirect("/")
-    return render(request, "admin/index.html")
-
-# def adminLogin(request):
-#     if request.method == 'POST':
-#         email = request.POST['email']
-#         password = request.POST['password']
-#         user = authenticate(email=email, password=password)
-
-#         if user is not None:
-#             login(request, user)
-#             messages.success(request, 'You are now logged in.')
-#             return redirect('/')
-#         else:
-#             messages.error(request, "Invalid login credentials")
-#             return redirect('/admin/login')
-#     return render(request, 'admin/admin.html')
+    context = {}
+    users = AdminUser.objects.all()
+    return render(request, "admin/index.html", {"users": users})
