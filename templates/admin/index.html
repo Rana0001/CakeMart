@@ -21,9 +21,6 @@
                 </div>
             </div>
         </div>
-        <div class="d-flex justify-content-end">
-            <a href="/admin/adduser/" class="btn btn-primary">Add User</a>
-        </div>
     </section>
 
     <section class="container-fluid">
@@ -55,8 +52,12 @@
             </tbody>
         </table>
         </div>
-        <nav class="d-flex justify-content-center" aria-label="...">
-            <ul class="pagination">
+        <nav class="row" aria-label="...">
+
+            <ul class="pagination d-flex justify-content-start">
+                <div class="col-5 justify-content-start ms-2">
+                    <a href="/admin/adduser/" class="btn btn-primary">Add User</a>
+                </div>
                 <li class="page-item">
                     <span class="page-link">Previous</span>
                 </li>
@@ -68,6 +69,7 @@
                 <li class="page-item">
                     <a class="page-link" href="#">Next</a>
                 </li>
+
             </ul>
         </nav>
     </section>

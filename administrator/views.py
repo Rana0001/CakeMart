@@ -14,23 +14,23 @@ from .forms import AdminUserForm
 
 def create(request):
     if request.method == "POST":
-        try:
-            form = AdminUserForm(request.POST)
-            email = request.POST['email']
-            username = request.POST['username']
-            if form.is_valid():
-                if AdminUser.objects.filter(email=email).exists():
-                    messages.error(request, 'Email already exists')
-                    return redirect('/admin/adduser/')
-                elif AdminUser.objects.filter(username=username).exists():
-                    messages.error(request, 'Username already exists')
-                    return redirect('/admin/adduser/')
-                else:
-                    form.save()
-                    print(form)
-                    return redirect("/admin/index/")
-        except:
-            pass
+        # try:
+        form = AdminUserForm(request.POST)
+        email = request.POST['email']
+        username = request.POST['username']
+        if form.is_valid():
+            if AdminUser.objects.filter(email=email).exists():
+                messages.error(request, 'Email already exists')
+                return redirect('/admin/adduser/')
+            elif AdminUser.objects.filter(username=username).exists():
+                messages.error(request, 'Username already exists')
+                return redirect('/admin/adduser/')
+            else:
+                form.save()
+                print(form)
+                return redirect("/admin/index/")
+        # except:
+        #     return redirect("/admin/index/")
     return render(request, 'admin/form.html')
 
 

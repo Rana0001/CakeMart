@@ -9,7 +9,7 @@ class AdminUser(models.Model):
         auto_created=True, primary_key=True, unique=True)
     username = models.CharField(max_length=100, default="root")
     email = models.CharField(
-        max_length=100, unique=True, default="root@gmail.com")
+        max_length=100, default="root@gmail.com")
     password = models.CharField(max_length=8, default="root")
 
     class Meta:

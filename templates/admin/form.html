@@ -1,7 +1,7 @@
 {% extends 'admin/index.html' %}
 {% block content %}
 
-<form class="container has-validation" method="POST" action="" enctype="multipart/form-data">
+<form class="container has-validation pt-4" method="POST" action="" enctype="multipart/form-data">
     {% csrf_token %}
         <div class="col-6">
             {% for message in messages %}
@@ -10,7 +10,7 @@
         </div>
     <div class="col-6">
         <label class="form-label" for="validationDefault01">User Name</label><br>
-        <input class="form-control" id="validationDefault01" type="text" name="first_name" required>
+        <input class="form-control" id="validationDefault01" type="text" name="username" required>
         </input>
     </div>
     <div class="col-6">
@@ -20,7 +20,7 @@
     </div>
     <div class="col-6">
         <label class="form-label" for="validationDefault01">Password</label><br>
-        <input class="form-control" type="password" name="Password" id="validationDefault01" required>
+        <input class="form-control" type="password" name="password" id="validationDefault01" required>
         </input><br>
     </div>
     

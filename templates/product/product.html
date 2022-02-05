@@ -19,15 +19,17 @@
             </thead>
             <tbody>
                 <tr>
-                    <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td><img width="100" src="{% static 'asserts/' %}" alt="Profile"></td>
-                    <td>Rs. 500 </td>
-                    <td><span class="far fa-edit px-2" style="font-size: 25px;color:green;"></span><span
-                            class="fas fa-trash px-2" style="font-size: 25px;color:#dc3545;"></span>
+                    {% for product in products %}
+                    <th scope="row">{{product.product_id}}</th>
+                    <td>{{product.product_name}}</td>
+                    <td>{{product.product_category}}</td>
+                    <td><img width="100" height="100" src="{% static 'assets/' %}{{product.product_picture}}" alt="Profile"></td>
+                    <td>Rs.{{product.product_price}} </td>
+                    <td><a href="/admin/editProduct/{{product.product_id}}"><i class="far fa-edit px-2" style="font-size: 25px;color:green;"></i></a><a href="/admin/deleteProduct/{{product.product_id}}"><i
+                            class="fas fa-trash px-2" style="font-size: 25px;color:#dc3545;"></i></a>
                     </td>
                 </tr>
+                {% endfor %}
             </tbody>
         </table>
         </div>
@@ -36,7 +38,7 @@
 
             <ul class="pagination d-flex justify-content-start">
                 <div class="col-5 justify-content-start ms-2">
-                    <a href="/admin/adduser/" class="btn btn-primary">Add User</a>
+                    <a href="/admin/addProduct/" class="btn btn-primary">Add Product</a>
                 </div>
                 <li class="page-item">
                     <span class="page-link">Previous</span>
