@@ -5,13 +5,13 @@
             <div class="row py-5">
                 <div class="col-md-3 bg-primary ms-md-4 rounded py-4">
                     <h4 style="text-align: center;">Total No. Customer</h4>
-                    <p style="text-align: center; font-size: 30px;">50</p>
+                    <p style="text-align: center; font-size: 30px;">{{customers}}</p>
                 </div>
                 <div class="col-1">
                 </div>
                 <div class="col-md-3 bg-danger rounded py-4">
                     <h4 style="text-align: center;">Total No. Product</h4>
-                    <p style="text-align: center; font-size: 30px;">30</p>
+                    <p style="text-align: center; font-size: 30px;">{{products}}</p>
                 </div>
                 <div class="col-1">
                 </div>
@@ -44,20 +44,27 @@
                     <td>{{user.username}}</td>
                     <td>{{user.email}}</td>
                     <td>{{user.password}}</td>
+
                     <td><span class="far fa-edit px-2" style="font-size: 25px;color:green;"></span><span
                             class="fas fa-trash px-2" style="font-size: 25px;color:#dc3545;"></span>
                     </td>
                 </tr>
                 {% endfor %}
+                </tr>
+                
             </tbody>
         </table>
         </div>
         <nav class="row" aria-label="...">
 
             <ul class="pagination d-flex justify-content-start">
+                
                 <div class="col-5 justify-content-start ms-2">
+                    {% if admin_users.is_admin == True %}
                     <a href="/admin/adduser/" class="btn btn-primary">Add User</a>
+                    {% endif %}
                 </div>
+                
                 <li class="page-item">
                     <span class="page-link">Previous</span>
                 </li>

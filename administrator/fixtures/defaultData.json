@@ -5,7 +5,8 @@
             "user_id": "1",
             "username": "root",
             "email": "root@gmail.com",
-            "password": "root"
+            "password": "root",
+            "is_admin": "True"
         }
     }
 ]

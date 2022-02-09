@@ -8,6 +8,14 @@ urlpatterns = [
     path('customer/', views.customerboard, name="customerBoard"),
     path('addProduct/', addProduct, name='addProduct'),
     path('product/', productTable, name='product'),
-    path('editProduct/<slug:product_id>', editProduct, name="editProduct"),
-    path('deleteProduct/<slug:product_id>',deleteProduct, name="deleteProduct"),
+    path('editProduct/<product_id>', editProduct, name="editProduct"),
+    path('deleteProduct/<product_id>',
+         deleteProduct, name="deleteProduct"),
+    # path('loginredirect/', views.redirectLogin, name="loginAdmin"),
+    path('login/', views.loginAdmin, name="loginAdmin"),
+    path('logout/', views.signout, name="signout"),
+    path('', views.loginAdmin, name="loginAdmin"),
+
+
+
 ]

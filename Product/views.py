@@ -2,15 +2,22 @@
 from django.shortcuts import redirect, render
 from .models import Product
 from .forms import ProductForm
+from administrator.models import AdminUser
+from authenticate import *
 # Create your views here.
 
 
+@Authentication.valid_admin
 def productTable(request):
     context = {}
+    users = AdminUser.objects.all()
     products = Product.objects.all()
-    return render(request, 'product/product.html', {'products': products})
+    username = request.session['username']
+    admin_users = AdminUser.objects.get(username=username)
+    return render(request, 'product/product.html', {'products': products, 'users': users,'admin_user':admin_users})
 
 
+@Authentication.valid_admin
 def addProduct(request):
     if request.method == "POST":
         form = ProductForm(request.POST, request.FILES)
@@ -22,9 +29,9 @@ def addProduct(request):
     return render(request, 'product/forms.html')
 
 
+# @Authentication.valid_admin
 def editProduct(request, product_id):
     product = Product.objects.get(product_id=product_id)
-
     if request.method == "POST":
         form = ProductForm(request.POST, request.FILES, instance=product)
         form.save()
@@ -33,6 +40,7 @@ def editProduct(request, product_id):
         return render(request, "product/edit.html", {'product': product})
 
 
+# @Authentication.valid_admin
 def deleteProduct(request, product_id):
     product = Product.objects.get(product_id=product_id)
     product.delete()

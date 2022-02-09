@@ -1,13 +1,13 @@
 
-from turtle import title
 from django.shortcuts import render, HttpResponse, redirect
 from .forms import *
 from .models import *
 from django.contrib import messages, auth
-
+from authenticate import *
 # Create your views here.
 
 
+# @Authentication.valid_customer
 def index(request):
     title = {"index": "CakeMart | Welcome to CakeMart"}
     return render(request, 'index.html', title)
@@ -25,6 +25,7 @@ def register(request):
             else:
                 form.save()
                 print(form)
+                request.session['customer_id'] = form.customer_id
                 return redirect("/login/")
         else:
             print(form)
@@ -34,21 +35,17 @@ def register(request):
 
 def login(request):
     if request.method == "POST":
-        email = request.POST['email']
-        password = request.POST['password']
-        try:
-            user = Customer.objects.get(email=email, password=password)
-            if user is not None:
-                return redirect("/")
-        except:
-            messages.error(request, 'Please! Re-enter your email and password')
-            return redirect('/login/')
+        request.session['email'] = request.POST['email']
+        request.session['password'] = request.POST['password']
+        return redirect('/')
     return render(request, 'login/login.html')
 
 
+# @Authentication.valid_product_where_id
 def about(request):
     return render(request, 'about_us/aboutUs.html')
 
 
+# @Authentication.valid_product_where_id
 def contact(request):
     return render(request, 'about_us/contact_us.html')

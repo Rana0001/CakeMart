@@ -11,6 +11,7 @@ class AdminUser(models.Model):
     email = models.CharField(
         max_length=100, default="root@gmail.com")
     password = models.CharField(max_length=8, default="root")
+    is_admin = models.BooleanField(default=False)
 
     class Meta:
         db_table = "admin_tbl"
