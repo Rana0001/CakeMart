@@ -14,6 +14,7 @@ class Order(models.Model):
     order_date = models.DateField()
     order_address = models.CharField(max_length=25)
     payment_state = models.CharField(max_length=10)
+    
 
     class Meta:
         db_table = 'order_tbl'
