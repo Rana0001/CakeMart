@@ -14,9 +14,10 @@ def productTable(request):
     products = Product.objects.all()
     username = request.session['username']
     admin_users = AdminUser.objects.get(username=username)
-    return render(request, 'product/product.html', {'products': products, 'users': users,'admin_user':admin_users})
+    return render(request, 'product/product.html', {'products': products, 'users': users, 'admin_user': admin_users})
 
 
+@Authentication.admin_only
 @Authentication.valid_admin
 def addProduct(request):
     if request.method == "POST":
@@ -29,7 +30,7 @@ def addProduct(request):
     return render(request, 'product/forms.html')
 
 
-# @Authentication.valid_admin
+@Authentication.admin_only
 def editProduct(request, product_id):
     product = Product.objects.get(product_id=product_id)
     if request.method == "POST":
@@ -40,7 +41,8 @@ def editProduct(request, product_id):
         return render(request, "product/edit.html", {'product': product})
 
 
-# @Authentication.valid_admin
+@Authentication.valid_admin
+@Authentication.admin_only
 def deleteProduct(request, product_id):
     product = Product.objects.get(product_id=product_id)
     product.delete()

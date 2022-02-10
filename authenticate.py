@@ -72,11 +72,15 @@ class Authentication:
             return redirect('/admin/login/')
         return wrap
 
-    # def admin_only(view_function):
-    #     def wrapper_function(request, *args, **kwargs):
-            
-    #         if request.user.is_staff:
-    #             return view_function(request, *args, **kwargs)
-    #         else:
-    #             return redirect('/admin/index/')
-    #     return wrapper_function
+    def admin_only(function):
+        def wrap(request, *args, **kwargs):
+            try:
+                admin = AdminUser.objects.get(
+                    username=request.session['username'])
+                if admin.is_admin == True:
+                    return function(request, *args, **kwargs)
+                else:
+                    return redirect('/admin/login/')
+            except:
+                return redirect('/admin/login/')
+        return wrap

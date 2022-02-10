@@ -6,13 +6,14 @@ from .models import AdminUser
 from .forms import AdminUserForm
 from authenticate import *
 from Product.models import *
-from django.contrib.auth.models import User
+
 
 # Create your views here.
 
 
 # @Authentication.admin_only
 @Authentication.valid_admin
+@Authentication.admin_only
 def create(request):
     if request.method == "POST":
         # try:
@@ -49,7 +50,7 @@ def loginAdmin(request):
 
 
 def signout(request):
-    request.session.clear()
+    request.session.flush()
     return redirect('/admin/login/')
 
 

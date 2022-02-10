@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Epilogue:ital,wght@0,400;1,500&display=swap');
+
+
+* {
+    font-family: 'Epilogue', sans-serif;
+    font-weight: 500;
+
+}
+
+.profileimg {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    overflow: hidden;
+    border-radius: 50%;
+}
+
+.profileimg img {
+    width: 100%;
+    height: auto;
+}
+
+.form-control {
+    border-radius: 20px;
+    width: 400px;
+}
