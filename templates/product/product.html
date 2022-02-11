@@ -26,7 +26,7 @@
                     <td><img width="100" height="100" src="{% static 'assets/' %}{{product.product_picture}}"
                             alt="Profile"></td>
                     <td>Rs.{{product.product_price}} </td>
-                    {% if admin_users == True %}
+                    {% if admin_user.is_admin == True %}
                     <td><a href="/admin/editProduct/{{product.product_id}}"><i class="far fa-edit px-2"
                                 style="font-size: 25px;color:green;"></i></a><a
                             href="/admin/deleteProduct/{{product.product_id}}"><i class="fas fa-trash px-2"
@@ -43,7 +43,7 @@
 
             <ul class="pagination d-flex justify-content-start">
                 <div class="col-5 justify-content-start ms-2">
-                    {% if admin_users == True %}
+                    {% if admin_user.is_admin == True %}
                     <a href="/admin/addProduct/" class="btn btn-primary">Add Product</a>
                     {% endif %}
                 </div>

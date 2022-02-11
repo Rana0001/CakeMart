@@ -84,3 +84,16 @@ class Authentication:
             except:
                 return redirect('/admin/login/')
         return wrap
+
+    def user_only(function):
+        def wrap(request, *args, **kwargs):
+            try:
+                user = Customer.objects.get(
+                    email=request.session['email'])
+                if user.is_login == True:
+                    return function(request, *args, **kwargs)
+                else:
+                    return redirect('/login/')
+            except:
+                return redirect('/login/')
+        return wrap

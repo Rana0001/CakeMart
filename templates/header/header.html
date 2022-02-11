@@ -12,11 +12,11 @@
     <link rel="stylesheet" href="/static/css/footer/footer.css">
     <link href="/static/css/about/aboutus.css" rel="stylesheet">
     <script src="https://kit.fontawesome.com/37789ae0bb.js" crossorigin="anonymous"></script>
-    <title>{% if request.path == "/" %}CakeMart | Welcome to CakeMart{% elif request.path == "/about" %}About Us | About Our Website{% endif %}</title>
+    <title>{% if request.path == "/" %}CakeMart | Welcome to CakeMart{% elif request.path == "/about" %}About Us | About
+        Our Website{% endif %}</title>
 </head>
 
 <body>
-
     <nav class="navbar navbar-expand-lg navbar-light bg-dark sticky-top" id="navbar-scrollspy">
         <div class="container-fluid ms-lg-5">
             <a class="navbar-brand" href="/">
@@ -26,19 +26,45 @@
                 aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse nav justify-content-end navbar-light text-light bg-dark" id="navbarNavAltMarkup">
+            <div class="collapse navbar-collapse nav justify-content-end navbar-light text-light bg-dark"
+                id="navbarNavAltMarkup">
                 <div class="navbar-nav mt-1">
-                    <a class="nav-link px-lg-3 rounded py-3 mx-lg-2 bg-warning text-light" aria-current="page" href="#scrollspyHeading1">Home</a>
+                    <a class="nav-link px-lg-3 rounded py-3 mx-lg-2 bg-warning text-light" aria-current="page"
+                        href="#scrollspyHeading1">Home</a>
                     <a class="nav-link px-lg-3 rounded py-3 mx-lg-2 text-light" href="#scrollspyHeading2">Product</a>
                     <a class="nav-link px-lg-3 rounded py-3 mx-lg-2 text-light" href="#scrollspyHeading3">About</a>
                     <a class="nav-link px-lg-3 rounded py-3 mx-lg-2 text-light" href="#scrollspyHeading4">Contact</a>
                 </div>
             </div>
             <div class="collapse navbar-collapse nav justify-content-end" id="navbarNavAltMarkup">
+                {% if userdata.is_login == True %}
+                <div class="navbar-nav">
+                    <div class="dropdown">
+                        <button class="btn dropdown-toggle profilebtn" type="button" id="dropdownMenuButton1"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            <img src="/static/assets/{{userdata.customer_picture}}" alt="">
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                            <li><a class="dropdown-item" href="/index/"><i class="fa-solid fa-hand px-2"></i>Hi!
+                                    {{userdata.customer_first}}</a></li>
+                            <li><a class="dropdown-item" href="/update/{{userdata.customer_id}}"><i class="fa-solid fa-user px-2"></i>Update
+                                    profile</a>
+                            </li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item text-danger" href="/logout/"><i
+                                        class="fa-solid fa-right-from-bracket px-2 text-danger"></i>Logout</a></li>
+                        </ul>
+                    </div>
+                </div>
+                {% else %}
+
                 <div class="navbar-nav">
                     <a class="btn btn-lg text-light" style="background-color: #ffd700;" href="/login/">Signup/Login
                     </a>
                 </div>
+                {% endif %}
             </div>
         </div>
     </nav>

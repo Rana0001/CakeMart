@@ -229,3 +229,17 @@ body {
         display: none;
     }
 }
+
+.profilebtn {
+    position: relative;
+    width: 70px;
+    height: 55px;
+    overflow: hidden;
+    margin-left: 100px;
+}
+
+.profilebtn img {
+    width: 100%;
+    border-radius: 60%;
+    height: 100%;
+}

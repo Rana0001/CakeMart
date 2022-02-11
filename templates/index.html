@@ -1,94 +1,92 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<section data-bs-spy="scroll" data-bs-target="#navbar-example2" data-bs-offset="0" class="scrollspy-example" tabindex="0">
-<section class="home" id="scrollspyHeading1">
-    <div class="slider-content">
-        <div class="slide active-slide" style="background-image: url('/static/images/index/cake/slide-1.jpg')">
-            <div class="container-carousel">
-                <div class="caption">
-                    <h1 style="color: black;">1. Cake</h1>
-                    <p style="color: black;">Order your Celebration Cake with 10% discount.</p>
-                    <a href="tel:9811722722">Order Now</a>
-                </div>
-            </div>
-        </div>
-        <div class="slide" style="background-image: url('/static/images/index/cake/slide-2.jpg')">
-            <div class="container-carousel">
-                <div class="caption">
-                    <h1>2. Cup-Cake</h1>
-                    <p>Enjoy your Cup-Cake with your friend.</p>
-                    <a href="tel:9811722722">Order Now</a>
-                </div>
-            </div>
-        </div>
-        <div class="slide" style="background-image: url('/static/images/index/cake/slide-3.jpg')">
-            <div class="container-carousel">
-                <div class="caption">
-                    <h1>3. Dessert</h1>
-                    <p>Dessert is an opportunity to make something beautiful as well as delicious.</p>
-                    <a href="tel:9811722722">Order Now</a>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- controls  -->
-    <div class="controls">
-        <div class="prev"></div>
-        <div class="next"> </div>
-    </div>
-
-    <!-- indicators -->
-    <div class="indicator">
-    </div>
-
-</section>
-
-
-<section class="container-fluid mt-5">
-    <section class="container pt-3">
-        <div class="row">
-            <div class="col-lg-4"></div>
-            <div class="col-lg-4">
-                <div class="row">
-                    <div class="col-sm-4">
-                        <img class="rounded pb-2" height="80px" weight="80px"
-                            src="/static/images/index/cakeAssert/cake.png"><br>
-                        <span class="px-sm-3">Cake</span>
+<section data-bs-spy="scroll" data-bs-target="#navbar-example2" data-bs-offset="0" class="scrollspy-example"
+    tabindex="0">
+    <section class="home" id="scrollspyHeading1">
+        <div class="slider-content">
+            <div class="slide active-slide" style="background-image: url('/static/images/index/cake/slide-1.jpg')">
+                <div class="container-carousel">
+                    <div class="caption">
+                        <h1 style="color: black;">1. Cake</h1>
+                        <p style="color: black;">Order your Celebration Cake with 10% discount.</p>
+                        <a href="tel:9811722722">Order Now</a>
                     </div>
-
-                    <div class="col-sm-4">
-                        <img class="rounded pb-2" height="80px" weight="80px"
-                            src="/static/images/index/cakeAssert/dessert.png"><br>
-                        <span class="px-sm-0">Cup Cake</span>
-
-                    </div>
-
-                    <div class="col-sm-4">
-                        <img class="rounded pb-2" height="80px" weight="80px"
-                            src="/static/images/index/cakeAssert/cup-cake.png"><br>
-                        <span class="px-sm-2">Dessert</span>
-
-                    </div>
-
-
                 </div>
             </div>
-            <div class="col-lg-4"></div>
+            <div class="slide" style="background-image: url('/static/images/index/cake/slide-2.jpg')">
+                <div class="container-carousel">
+                    <div class="caption">
+                        <h1>2. Cup-Cake</h1>
+                        <p>Enjoy your Cup-Cake with your friend.</p>
+                        <a href="tel:9811722722">Order Now</a>
+                    </div>
+                </div>
+            </div>
+            <div class="slide" style="background-image: url('/static/images/index/cake/slide-3.jpg')">
+                <div class="container-carousel">
+                    <div class="caption">
+                        <h1>3. Dessert</h1>
+                        <p>Dessert is an opportunity to make something beautiful as well as delicious.</p>
+                        <a href="tel:9811722722">Order Now</a>
+                    </div>
+                </div>
+            </div>
         </div>
+
+        <!-- controls  -->
+        <div class="controls">
+            <div class="prev"></div>
+            <div class="next"> </div>
+        </div>
+
+        <!-- indicators -->
+        <div class="indicator">
+        </div>
+
     </section>
-</section>
-
-{% include 'card-slides/cards.html' %}
 
 
-{% include 'about_us/aboutUs.html' %}
+    <section class="container-fluid py-5" style="background-color:#F8F3F2;">
+        <section class="container pt-3">
+            <div class="row">
+                <div class="col-lg-4"></div>
+                <div class="col-lg-4">
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <img class="rounded pb-2" height="80px" weight="80px"
+                                src="/static/images/index/cakeAssert/cake.png"><br>
+                            <span class="px-sm-3">Cake</span>
+                        </div>
 
-<section class="container">
-    
-</section>
+                        <div class="col-sm-4">
+                            <img class="rounded pb-2" height="80px" weight="80px"
+                                src="/static/images/index/cakeAssert/dessert.png"><br>
+                            <span class="px-sm-0">Cup Cake</span>
 
-{% include 'contact_us/contactUs.html' %}
+                        </div>
+
+                        <div class="col-sm-4">
+                            <img class="rounded pb-2" height="80px" weight="80px"
+                                src="/static/images/index/cakeAssert/cup-cake.png"><br>
+                            <span class="px-sm-2">Dessert</span>
+
+                        </div>
+
+
+                    </div>
+                </div>
+                <div class="col-lg-4"></div>
+            </div>
+        </section>
+    </section>
+
+    {% include 'card-slides/cards.html' %}
+
+
+    {% include 'about_us/aboutUs.html' %}
+
+
+    {% include 'contact_us/contactUs.html' %}
 </section>
 {% endblock %}

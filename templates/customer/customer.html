@@ -28,11 +28,8 @@
                     <td>{{customer.email}}</td>
                     <td>{{customer.customer_gender}}</td>
                     <td>{{customer.customer_contact}}</td>
-                    <td><img width="100" src="{% static 'asserts/' %}{{customer.customer_picture}}" alt="Profile"></td>
+                    <td><img width="100" height="100" src="/static/assets/{{customer.customer_picture}}" alt="Profile"></td>
 
-                    <td><span class="far fa-edit px-2" style="font-size: 25px;color:green;"></span><span
-                            class="fas fa-trash px-2" style="font-size: 25px;color:#dc3545;"></span>
-                    </td>
                 </tr>
                 {% endfor %}
             </tbody>
