@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
+<section data-bs-spy="scroll" data-bs-target="#navbar-example2" data-bs-offset="0" class="scrollspy-example" tabindex="0">
 <section class="home" id="scrollspyHeading1">
     <div class="slider-content">
         <div class="slide active-slide" style="background-image: url('/static/images/index/cake/slide-1.jpg')">
@@ -8,7 +9,7 @@
                 <div class="caption">
                     <h1 style="color: black;">1. Cake</h1>
                     <p style="color: black;">Order your Celebration Cake with 10% discount.</p>
-                    <a href="">Order Now</a>
+                    <a href="tel:9811722722">Order Now</a>
                 </div>
             </div>
         </div>
@@ -17,7 +18,7 @@
                 <div class="caption">
                     <h1>2. Cup-Cake</h1>
                     <p>Enjoy your Cup-Cake with your friend.</p>
-                    <a href="">Order Now</a>
+                    <a href="tel:9811722722">Order Now</a>
                 </div>
             </div>
         </div>
@@ -26,7 +27,7 @@
                 <div class="caption">
                     <h1>3. Dessert</h1>
                     <p>Dessert is an opportunity to make something beautiful as well as delicious.</p>
-                    <a href="">Order Now</a>
+                    <a href="tel:9811722722">Order Now</a>
                 </div>
             </div>
         </div>
@@ -84,6 +85,10 @@
 
 {% include 'about_us/aboutUs.html' %}
 
-{% include 'contact_us/contactUs.html' %}
+<section class="container">
+    
+</section>
 
+{% include 'contact_us/contactUs.html' %}
+</section>
 {% endblock %}
