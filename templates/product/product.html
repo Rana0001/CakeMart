@@ -4,7 +4,7 @@
 {% load static %}
 <section class="container-fluid">
     <section class="container">
-        <table class="table table-responsive table-striped table-primary table-hover">
+        <table class="table table-responsive table-striped table-light table-hover">
             <thead>
                 <tr class="col">
                     <th scope="col">Product Id.</th>
@@ -37,14 +37,12 @@
                 {% endfor %}
             </tbody>
         </table>
-        </div>
-
         <nav class="row" aria-label="...">
 
             <ul class="pagination d-flex justify-content-start">
                 <div class="col-5 justify-content-start ms-2">
                     {% if admin_user.is_admin == True %}
-                    <a href="/admin/addProduct/" class="btn btn-primary">Add Product</a>
+                    <a href="/admin/addProduct/" class="btn btn-primary ms-sm-5">Add Product</a>
                     {% endif %}
                 </div>
                 <li class="page-item">
@@ -61,6 +59,9 @@
 
             </ul>
         </nav>
+        </div>
+
+
     </section>
 
 

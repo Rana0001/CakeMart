@@ -1,12 +1,14 @@
+
 from django.shortcuts import redirect, render
 from django.contrib.auth import *
 from django.contrib import messages
 from Customer.models import Customer
+from Order.models import Order
 from .models import AdminUser
 from .forms import AdminUserForm
 from authenticate import *
 from Product.models import *
-
+from django.core.paginator import Paginator
 
 # Create your views here.
 
@@ -43,7 +45,9 @@ def create(request):
 # @Authentication.valid_admin
 def loginAdmin(request):
     if request.method == "POST":
-        username = request.session['username'] = request.POST['username']
+
+        request.session.clear()
+        username = request.session['username'] = request.POST.get('username')
         request.session['password'] = request.POST['password']
         AdminUser.objects.filter(username=username).update(is_admin=True)
         return redirect('/admin/index/')
@@ -61,18 +65,41 @@ def signout(request):
 def customerboard(request):
     context = {}
     customers = Customer.objects.all()
-
-    return render(request, 'customer/customer.html', {'customers': customers})
+    paginator3 = Paginator(customers, 5)
+    customerpage = request.GET.get('page')
+    paged_customer = paginator3.get_page(customerpage)
+    return render(request, 'customer/customer.html', {'customers': paged_customer})
 
 
 @Authentication.valid_admin
 def home(request):
     context = {}
+
     customers = Customer.objects.all()
     product = Product.objects.all()
-    users = AdminUser.objects.all()
+    order = AdminUser.objects.all()
+    orders = Order.objects.all()
+
+    # Order page paginator
+
+    # Product page paginator
+
+    # Customer pae paginator
+
     username = request.session['username']
     admin_users = AdminUser.objects.get(username=username)
     total_user = customers.count()
     total_product = product.count()
-    return render(request, "admin/index.html", {"users": users, "admin_users": admin_users, 'customers': total_user, 'products': total_product})
+    total_order = orders.count()
+    return render(request, "admin/base.html", {"admin_users": admin_users, 'total_customers': total_user, 'total_products': total_product, 'total_orders': total_order})
+
+
+@Authentication.valid_admin_where_id
+def editprofile(request, p_id):
+    admin = AdminUser.objects.get(user_id=p_id)
+    if request.method == "POST":
+        form = AdminUserForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect("/admin/index")
+    return render(request, 'admin/edit.html', {'admin': admin})

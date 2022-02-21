@@ -11,22 +11,28 @@
 </head>
 
 <body>
+    <div class="container-fluid mt-5">
+        <form action="" class="container" method="POST">
+             {% csrf_token %}
+            <div class="row">
+                <div class="col-12">
+                    <h3 class="text-center text-warning">Admin login</h3>
+                </div>
+                <div class="offset-sm-4 col-sm-5">
+                    <label>Username</label><br>
+                    <input type="text" class="form-control mt-2" name="username" placeholder="Enter your username..">
+                </div>
+                <div class="offset-sm-4 col-sm-5">
+                    <label class="mt-3">Password</label><br>
+                    <input type="password" class="form-control mt-2" name="password" placeholder="Enter your password..">
+                </div>
+                <div class="offset-sm-4 col-sm-4 mt-3">
+                    <button class="btn btn-warning text-light">Login</button>
+                </div>
+            </div>
+        </form>
+    </div>
 
-    <form class="container mt-5" method="POST" action="">
-        {% csrf_token %}
-
-        <div class="col-6">
-            <label class="form-label">Username</label><br>
-            <input type="text" class="form-control" name="username"><br>
-        </div>
-        <div class="col-6">
-            <label class="form-label">Password</label><br>
-            <input type="password" class="form-control" name="password"><br>
-        </div>
-        <div class="col-3">
-            <button type="submit" class="btn btn-lg bg-warning">Login</button>
-        </div>
-    </form>
 </body>
 
 </html>

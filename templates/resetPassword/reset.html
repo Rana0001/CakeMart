@@ -1,0 +1,60 @@
+<html>
+
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js" type='text/javascript'></script>
+</head>
+
+<body>
+    <div class="offset-md-4 col-lg-3 pt-5">
+        <div id="email_div" style="display: block;">
+            <h3 class="text-center mb-4">Reset your password</h3>
+            <label for="email" class="my-2">Email</label>
+            <input class="form-control mb-3" type="text" name="email" placeholder="Enter your valid email address."
+                id="email">
+            <button onclick="ajax_send_otp()" class="btn btn-primary text-light mt-2">Reset your password</button>
+        </div>
+    </div>
+    <div class="offset-md-4 col-lg-3 pt-5">
+        <div id="verify_text_div"></div>
+
+        <div id="otp_div" style="display: none;">
+            <label for="email">Enter your OTP here: </label>
+            <input type="text" class="form-control " name="otp" id="otp" placeholder="Enter your OTP code..">
+            <button onclick="verify_otp()" class="btn btn-primary text-light my-2">Verify</button>
+        </div>
+    </div>
+    <br>
+    <form class="offset-md-4 col-md-4 mt-4" id="form_div" method="POST" style="display: none;">
+        {% csrf_token %}
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <strong>OTP Verify Successfully!</strong> You can change your password.
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        <div class="row">
+            <div class="col-md-12 my-3">
+                <label for="email">Email</label>
+                <input type="email" name="email" class="form-control" id="email" placeholder="Enter your email address">
+            </div>
+            <div class="col-md-12 my-3">
+                <label for="password">Password</label>
+                <input type="password" name="password" class="form-control" id="password"
+                    placeholder="Enter your new password.">
+            </div>
+            <div class="col-md-12 my-3">
+                <label for="con_password">Confirm Password</label>
+                <input type="password" name="con_password" class="form-control" id="con_password"
+                    placeholder="Re-enter your new password">
+            </div>
+            <div class="col-md-3 my-3">
+                <button type="submit" class="btn btn-primary text-light">Submit</button>
+            </div>
+    </form>
+    <script src="/static/js/reset.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

@@ -1,5 +1,7 @@
 
 from django.shortcuts import render, HttpResponse, redirect
+
+from Order.models import Order
 from .forms import *
 from .models import *
 from django.contrib import messages, auth
@@ -29,6 +31,7 @@ def logIndex(request):
 
     Customer.objects.filter(email=email).update(is_login=True)
     userdata = Customer.objects.get(email=email)
+    request.session['customer_id'] = userdata.customer_id
     title = {"index": "CakeMart | Welcome to CakeMart"}
 
     return render(request,  'index.html', {'cake': cake, 'userdata': userdata, 'cupcake': cupcake,
@@ -60,7 +63,6 @@ def login(request):
     if request.method == "POST":
         email = request.session['email'] = request.POST['email']
         request.session['password'] = request.POST['password']
-
         Customer.objects.filter(email=email).update(is_login=True)
         # try:
         return redirect('/index/')
@@ -105,7 +107,9 @@ def logout(request):
 
 def carditem(request):
     product = Product.objects.all()
-    paginator = Paginator(product, 3)
+    paginator = Paginator(product, 4)
     page = request.GET.get('page')
     paged_product = paginator.get_page(page)
     return render(request, 'card-slides/card-items.html', {'products': paged_product})
+
+

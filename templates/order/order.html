@@ -1,0 +1,82 @@
+{% extends 'admin/base.html' %}
+
+{% block content %}
+{% load static %}
+<section class="container-fluid">
+    <section class="container">
+        <table class="table table-striped table-light table-hover">
+            <thead>
+                <tr class="col">
+                    <th scope="col-md-3">Order Id</th>
+                    <th scope="col-md-3">First Name</th>
+                    <th scope="col-md-3">Last Name</th>
+                    <th scope="col-md-3">Email</th>
+                    <th scope="col-md-4">Product Name</th>
+                    <th scope="col-md-4">Product Picture</th>
+                    <th scope="col-md-4">Address</th>
+                    <th scope="col-md-4">Date</th>
+                    <th scope="col-md-4">Quantity</th>
+                    <th scope="col-md-4"></th>
+
+
+                </tr>
+            </thead>
+            <tbody>
+                {% for order in order %}
+                <tr>
+                    <th scope="row">{{order.order_id}}</th>
+                    <td>{{order.customer.customer_first}}</td>
+                    <td>{{order.customer.customer_last}}</td>
+                    <td>{{order.customer.email}}</td>
+                    <td>{{order.product.product_name}}</td>
+                    <td><img width="100" height="100" src="/static/assets/{{order.product.product_picture}}" alt="Profile"></td>
+                    <td>{{order.order_address}}</td>
+                    <td>{{order.order_date}}</td>
+                    <td>{{order.order_quantity}}</td>
+                    
+
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        
+        <nav aria-label="..." class="offset-sm-5 col-sm-5 pt-5">
+            {% if order.has_other_pages %}
+            <ul class="pagination">
+                {% if order.has_previous %}
+                <li class="page-item">
+                    <a class="page-link" href="?page={{ order.previous_page_number }}"><i
+                            class="fa fa-angle-left"></i></a>
+                </li>
+                {% else %}
+                <li class="page-item disabled">
+                    <a class="page-link"><i class="fas fa-angle-left"></i></a>
+                </li>
+                {% endif %}
+    
+                {% for i in order.paginator.page_range %}
+                {% if order.number == i %}
+                <li class="page-item active"><a class="page-link" href="#">{{i}}</a></li>
+                {% else %}
+                <li class="page-item"><a class="page-link" href="?page={{i}}">{{i}}</a></li>
+                {% endif %}
+                {% endfor %}
+    
+                {% if order.has_next %}
+                <li class="page-item">
+                    <a class="page-link" href="?page={{ order.next_page_number }}"><i class="fa fa-angle-right"></i></a>
+                </li>
+                {% else %}
+                <li class="page-item disabled">
+                    <a class="page-link"><i class="fas fa-angle-right"></i></a>
+                </li>
+                {% endif %}
+            </ul>
+            {% endif %}
+        </nav>
+        </div>
+
+    </section>
+
+
+    {% endblock %}

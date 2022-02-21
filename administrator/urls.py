@@ -2,6 +2,7 @@
 from django.urls import path, include
 from . import views
 from Product.views import addProduct, deleteProduct, editProduct, productTable
+from Order.views import *
 urlpatterns = [
     path('index/', views.home, name="adminHome"),
     path('adduser/', views.create, name="createUser"),
@@ -15,7 +16,9 @@ urlpatterns = [
     path('login/', views.loginAdmin, name="loginAdmin"),
     path('logout/', views.signout, name="signout"),
     path('', views.loginAdmin, name="loginAdmin"),
-
-
+    path('order/', ordertbl, name="orderTable"),
+    path('editprofile/<p_id>', views.editprofile, name="editprofile"),
+    
+    
 
 ]

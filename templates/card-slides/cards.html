@@ -1,4 +1,4 @@
-<section class="container-fluid py-5" id="scrollspyHeading2" style="background-color:#F8F3F2;">
+<section class="container-fluid py-5" id="card" style="background-color:#F8F3F2;">
     <section class="py-5">
         <div class="container">
             <div class="row">
@@ -24,9 +24,12 @@
                                         </div>
                                         <div class="card card-back position-absolute">
                                             <div class="card-body text-center" style="margin-top:5rem;">
-                                                <a href="#" class="btn btn-lg btn-warning mt-5 text-light">Order
+                                                {% if userdata.is_login == True %}
+                                                <a href="/order/product/{{cakes.product_id}}"
+                                                    class="btn btn-lg btn-warning mt-5 text-light">Order
                                                     Now</a><br>
                                                 <span class="text-dark">OR</span><br>
+                                                {% endif %}
                                                 <a href="tel:9811722722" class="btn btn-lg btn-danger">Call
                                                     Now</a><br>
                                             </div>
@@ -52,9 +55,12 @@
                                         </div>
                                         <div class="card card-back position-absolute">
                                             <div class="card-body text-center" style="margin-top:5rem;">
-                                                <a href="#" class="btn btn-lg btn-warning mt-5 text-light">Order
+                                                {% if userdata.is_login == True %}
+                                                <a href="/order/product/{{cakes.product_id}}"
+                                                    class="btn btn-lg btn-warning mt-5 text-light">Order
                                                     Now</a><br>
                                                 <span class="text-dark">OR</span><br>
+                                                {% endif %}
                                                 <a href="tel:9811722722" class="btn btn-lg btn-danger">Call
                                                     Now</a><br>
                                             </div>
@@ -100,9 +106,12 @@
                                         </div>
                                         <div class="card card-back position-absolute">
                                             <div class="card-body text-center" style="margin-top:5rem;">
-                                                <a href="#" class="btn btn-lg btn-warning mt-5 text-light">Order
+                                                {% if userdata.is_login == True %}
+                                                <a href="/order/product/{{cupcake.product_id}}"
+                                                    class="btn btn-lg btn-warning mt-5 text-light">Order
                                                     Now</a><br>
                                                 <span class="text-dark">OR</span><br>
+                                                {% endif %}
                                                 <a href="tel:9811722722" class="btn btn-lg btn-danger">Call
                                                     Now</a><br>
                                             </div>
@@ -128,9 +137,12 @@
                                         </div>
                                         <div class="card card-back position-absolute">
                                             <div class="card-body text-center" style="margin-top:5rem;">
-                                                <a href="#" class="btn btn-lg btn-warning mt-5 text-light">Order
+                                                {% if userdata.is_login == True %}
+                                                <a href="/order/product/{{cupcake.product_id}}"
+                                                    class="btn btn-lg btn-warning mt-5 text-light">Order
                                                     Now</a><br>
                                                 <span class="text-dark">OR</span><br>
+                                                {% endif %}
                                                 <a href="tel:9811722722" class="btn btn-lg btn-danger">Call
                                                     Now</a><br>
                                             </div>
@@ -175,9 +187,12 @@
                                         </div>
                                         <div class="card card-back position-absolute">
                                             <div class="card-body text-center" style="margin-top:5rem;">
-                                                <a href="#" class="btn btn-lg btn-warning mt-5 text-light">Order
+                                                {% if userdata.is_login == True %}
+                                                <a href="/order/product/{{desserts.product_id}}"
+                                                    class="btn btn-lg btn-warning mt-5 text-light">Order
                                                     Now</a><br>
                                                 <span class="text-dark">OR</span><br>
+                                                {% endif %}
                                                 <a href="tel:9811722722" class="btn btn-lg btn-danger">Call
                                                     Now</a><br>
                                             </div>
@@ -203,9 +218,12 @@
                                         </div>
                                         <div class="card card-back position-absolute">
                                             <div class="card-body text-center" style="margin-top:5rem;">
-                                                <a href="#" class="btn btn-lg btn-warning mt-5 text-light">Order
+                                                {% if userdata.is_login == True %}
+                                                <a href="/order/product/{{desserts.product_id}}"
+                                                    class="btn btn-lg btn-warning mt-5 text-light">Order
                                                     Now</a><br>
                                                 <span class="text-dark">OR</span><br>
+                                                {% endif %}
                                                 <a href="tel:9811722722" class="btn btn-lg btn-danger">Call
                                                     Now</a><br>
                                             </div>

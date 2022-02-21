@@ -1,4 +1,4 @@
-{% extends 'admin/index.html' %}
+{% extends 'admin/base.html' %}
 {% block content %}
 
 <form class="container has-validation pt-4" method="POST" action="" enctype="multipart/form-data">
@@ -7,24 +7,24 @@
         </div>
     <div class="col-6">
         <label class="form-label" for="validationDefault01">User Name</label><br>
-        <input class="form-control" id="validationDefault01" type="text" name="username" required>
+        <input class="form-control" id="validationDefault01" type="text" name="username" value="{{admin.username}}" required>
         </input>
     </div>
-    <div class="col-6">
+    <div class="col-6"> 
         <label class="form-label" for="validationDefault02">Email</label><br>
-        <input class="form-control" type="text" name="email" id="validationDefault02" required>
+        <input class="form-control" type="text" name="email" id="validationDefault02" value="{{admin.email}}" required>
         </input>
     </div>
     <div class="col-6">
         <label class="form-label" for="validationDefault01">Password</label><br>
-        <input class="form-control" type="password" name="password" id="validationDefault01" required>
+        <input class="form-control" type="password" name="password" id="validationDefault01"  value="{{admin.password}}" required>
         </input><br>
     </div>
     
     <div class="col-6">
         <div class="row">
             <div class="col-6">
-                <input class="btn btn-lg bg-primary text-light" type="submit" value="Add User">
+                <input class="btn btn-lg bg-primary text-light" type="submit" value="Update">
                 </input>
             </div>
             <div class="col-6">

@@ -4,6 +4,7 @@ from .models import Product
 from .forms import ProductForm
 from administrator.models import AdminUser
 from authenticate import *
+from django.core.paginator import Paginator
 # Create your views here.
 
 
@@ -14,11 +15,13 @@ def productTable(request):
     products = Product.objects.all()
     username = request.session['username']
     admin_users = AdminUser.objects.get(username=username)
-    return render(request, 'product/product.html', {'products': products, 'users': users, 'admin_user': admin_users})
+    paginator2 = Paginator(products, 5)
+    productpage = request.GET.get('productpage')
+    paged_product = paginator2.get_page(productpage)
+    return render(request, 'product/product.html', {'products': paged_product, 'users': users, 'admin_user': admin_users})
 
 
-# @Authentication.valid_admin
-# @Authentication.admin_only
+@Authentication.valid_admin
 def addProduct(request):
     if request.method == "POST":
         print(request.POST)

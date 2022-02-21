@@ -1,4 +1,4 @@
-{% extends "admin/index.html" %}
+{% extends "admin/base.html" %}
 
 {% block content %}
 {% load static %}
@@ -34,25 +34,43 @@
                 {% endfor %}
             </tbody>
         </table>
+        <nav aria-label="..." class="col-sm-6 offset-sm-5 pt-5">
+            {% if customers.has_other_pages %}
+            <ul class="pagination">
+                {% if customers.has_previous %}
+                <li class="page-item">
+                    <a class="page-link" href="?page={{ customers.previous_page_number }}"><i
+                            class="fa fa-angle-left"></i></a>
+                </li>
+                {% else %}
+                <li class="page-item disabled">
+                    <a class="page-link"><i class="fas fa-angle-left"></i></a>
+                </li>
+                {% endif %}
+    
+                {% for i in customers.paginator.page_range %}
+                {% if customers.number == i %}
+                <li class="page-item active"><a class="page-link" href="#">{{i}}</a></li>
+                {% else %}
+                <li class="page-item"><a class="page-link" href="?page={{i}}">{{i}}</a></li>
+                {% endif %}
+                {% endfor %}
+    
+                {% if customers.has_next %}
+                <li class="page-item">
+                    <a class="page-link" href="?page={{ customers.next_page_number }}"><i class="fa fa-angle-right"></i></a>
+                </li>
+                {% else %}
+                <li class="page-item disabled">
+                    <a class="page-link"><i class="fas fa-angle-right"></i></a>
+                </li>
+                {% endif %}
+            </ul>
+            {% endif %}
+        </nav>
         </div>
 
-        <nav class="row" aria-label="...">
-
-            <ul class="pagination d-flex justify-content-center">
-                <li class="page-item">
-                    <span class="page-link">Previous</span>
-                </li>
-                <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                <li class="page-item" aria-current="page">
-                    <span class="page-link">2</span>
-                </li>
-                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                <li class="page-item">
-                    <a class="page-link" href="#">Next</a>
-                </li>
-
-            </ul>
-        </nav>
+ 
     </section>
 
 
